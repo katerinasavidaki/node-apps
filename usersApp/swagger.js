@@ -65,7 +65,57 @@ exports.options = {
       },      
     },
     "/api/users/{username}": {
-
+      "get": {
+        "tags": ["Users"],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "description": "Username of user that we want to find",
+            "type": "string"
+          }
+        ],
+        "description": "Returns user's details for specific username",
+        "responses": {
+          "200": {
+            "description": "User details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/login": {
+      "post": {
+        "tags": ["Auth"],
+        "description": "Login user",
+        "requestBody": {
+          "description": "User send username and password and for response we have jwt token",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {"type": "string"},
+                  "password": {"type": "string"}
+                },
+                "required": ["username", "password"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Token returned"
+          }
+        }
+      }
     }
   }
 }
