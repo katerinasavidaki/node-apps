@@ -72,7 +72,51 @@ exports.options = {
             }
           }
         }
-      },      
+      },
+      "post": {
+        "tags": ["Users"],
+        "description": "Data of users that we want to create",
+        "requestBody": {
+          "description": "JSON with user data",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {"type": "string"},
+                  "password": {"type": "string"},
+                  "name": {"type": "string"},
+                  "surname": {"type": "string"},
+                  "email": {"type": "string"},
+                  "address": {
+                    "type": "object",
+                    "properties": {
+                      "area": {"type": "string"},
+                      "road": {"type": 'string'}
+                    }
+                  },
+                  "phone": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "type": {"type": "string"},
+                        "number": {"type": "number"}
+                      }
+                    }
+                  }
+                },
+                "required": ["username", "password", "surname", "email"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "JSON of new user"
+          }
+        }
+      }
     },
     "/api/users/{username}": {
       "get": {
