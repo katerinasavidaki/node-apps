@@ -143,6 +143,66 @@ exports.options = {
             }
           }
         }
+      },
+      "patch": {
+        "tags": ["Users"],
+        "description": "Update user",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "description": "username of the user who can make the update",
+            "type": "string"
+          }
+        ],
+        "requestBody": {
+          "description": "data of user to update",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {"type": "string"},
+                  "name": {"type": "string"},
+                  "surname": {"type": "string"},
+                  "email": {"type": "string"},
+                  "address": {
+                    "type": "object",
+                    "properties": {
+                      "area": {"type": "string"},
+                      "road": {"type": "string"}
+                    }
+                  }
+                },
+                "required": ["email"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Update user succeed"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Users"],
+        "description": "Delete user from DB",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "description": "User to delete",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "user deleted"
+          }
+        }
       }
     },
     "/api/auth/login": {
@@ -170,6 +230,28 @@ exports.options = {
           }
         }
       }
-    }
+    },
+    "/api/user-product/{username}": {
+      "get": {
+        "tags": ["Users and Products"],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "description": "Find user and products",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User and Products",
+            "schema": {
+              "$ref": "#/components/schemas/User"
+            }
+          }
+        }
+      }
+    } 
   }
 }
