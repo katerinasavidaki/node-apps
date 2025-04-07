@@ -5,8 +5,18 @@ exports.options = {
   "components": {
     "schemas": {
       User: m2s(User)
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
     }
   },
+  "security": [
+    {"bearerAuth": []}
+  ],
   "openapi": "3.1.0",
   "info": {
     "version": "1.0.0",
