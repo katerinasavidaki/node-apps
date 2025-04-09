@@ -40,3 +40,8 @@
   label: 'My label for products app',
   timestamp: '08-04-2025 19:05:066'
 }
+{"label":"My label for products app","level":"error","message":"","timestamp":"08-04-2025 19:16:3333"}
+{"label":"My label for products app","level":"error","message":"","timestamp":"08-04-2025 20:28:1717"}
+{"label":"My label for products app","level":"error","message":"","timestamp":"08-04-2025 20:28:4040"}
+{"label":"My label for products app","level":"error","message":"","timestamp":"08-04-2025 20:33:1212"}
+{"label":"My label for products app","level":"error","message":"","timestamp":"08-04-2025 20:41:1111"}
