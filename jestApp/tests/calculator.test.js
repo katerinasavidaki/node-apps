@@ -10,7 +10,7 @@ describe("Calculator Test Sum", () => {
 
   test("Addition of 2 numbers with error", () => {
     let result = mathOperations.sum(3, 2);
-    expect(result).toBe(8)
+    expect(result).not.toBe(5)
   })
 });
 
