@@ -62,8 +62,8 @@ describe("Requests for /api/users/:username", () => {
 
     expect(res.statusCode).toBe(200);
     expect(res.body.status).toBeTruthy();
-    expect(res.body.username).toBe('user1');
-    expect(res.body.email).toBe('user1@aueb.gr');
+    expect(res.data.username).toBe('user1');
+    expect(res.data.email).toBe('user1@aueb.gr');
   })
 
 })
